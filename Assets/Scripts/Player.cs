@@ -31,13 +31,13 @@ public class Player : MonoBehaviour
     {
         PlayerMovement ();
 
-       if(Input.GetButtonDown("Jump") && _sensor._isGrounded)
-       {
+       //if(Input.GetButtonDown("Jump") && _sensor._isGrounded)
+       //{
         Playerjump();
        //_rBody2D.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
        //if = condicionante
        //_rBody2D porque en los "()" indicas como hay 2 vertices zy y xy, y como solo afecta el jumpforce al xy
-       }
+       //}
     }
     
     void FixedUpdate() 
@@ -53,13 +53,23 @@ public class Player : MonoBehaviour
         //_playerInputVertical = Input.GetAxis("Vertical");
         //transform.Translate(new Vector2(_playerInputHorizontal, _playerInputVertical) * _playerSpeed * Time.deltaTime);
         
-        if(_playerInputHorizontal !=0)
+        if(_playerInputHorizontal < 0)
         {
-            _animator.SetBool("IsRunning", true);
-        }else 
-        {
-            _animator.SetBool("IsRunning", false);
+        transform.rotation = Quaternion.Euler(0, 180, 0);
+        _animator.SetBool("IsRunning", true);
         }
+
+        if(_playerInputHorizontal > 0)
+        {
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        _animator.SetBool("IsRunning", true);
+        }
+
+        if(_playerInputHorizontal == 0)
+        {
+        _animator.SetBool("IsRunning", false);
+        }
+
     }
 
     void Playerjump()
