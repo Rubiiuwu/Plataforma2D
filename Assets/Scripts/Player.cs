@@ -56,9 +56,7 @@ public class Player : MonoBehaviour
         if(_playerInputHorizontal !=0)
         {
             _animator.SetBool("IsRunning", true);
-        }
-
-        if(_playerInputHorizontal ==0)
+        }else 
         {
             _animator.SetBool("IsRunning", false);
         }
@@ -66,9 +64,11 @@ public class Player : MonoBehaviour
 
     void Playerjump()
     {
-           _rBody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);  
+        if(Input.GetButtonDown("Jump") && _sensor._isGrounded)
+        _rBody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);  
         //if = condicionante
        //_rBody2D porque en los "()" indicas como hay 2 vertices zy y xy, y como solo afecta el jumpforce al xy
+       
     }
 
 }
