@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Player : MonoBehaviour
 {
@@ -17,13 +18,13 @@ public class Player : MonoBehaviour
     private float _playerInputHorizontal;
     private Rigidbody2D _rBody2D;
     private GroundSensor _sensor;
-    private Animator _animator;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private PlayableDirector _director;
     
     void Start()
     {
         _rBody2D = GetComponent<Rigidbody2D>();
         _sensor = GetComponentInChildren<GroundSensor>();
-        _animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -38,6 +39,13 @@ public class Player : MonoBehaviour
        //if = condicionante
        //_rBody2D porque en los "()" indicas como hay 2 vertices zy y xy, y como solo afecta el jumpforce al xy
        //}
+       
+       if(Input.GetButtonDown("Fire2"))
+       {
+        _director.Play();
+       }
+
+       
     }
     
     void FixedUpdate() 
