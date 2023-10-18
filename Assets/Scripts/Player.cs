@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         Playerjump();
        }
 
-       _animator.SetBool("IsJumping", GroundSensor._isGrounded);
+       _animator.SetBool("IsJumping", !GroundSensor._isGrounded);
        
        if(Input.GetButtonDown("Fire2"))
        {
