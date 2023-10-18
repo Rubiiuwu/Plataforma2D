@@ -17,14 +17,14 @@ public class Player : MonoBehaviour
     //private float _playerInputVertical;
     private float _playerInputHorizontal;
     private Rigidbody2D _rBody2D;
-    private GroundSensor _sensor;
+    //private GroundSensor _sensor;
     [SerializeField] private Animator _animator;
     [SerializeField] private PlayableDirector _director;
+    
     
     void Start()
     {
         _rBody2D = GetComponent<Rigidbody2D>();
-        _sensor = GetComponentInChildren<GroundSensor>();
     }
 
     // Update is called once per frame
@@ -32,34 +32,32 @@ public class Player : MonoBehaviour
     {
         PlayerMovement ();
 
-       //if(Input.GetButtonDown("Jump") && _sensor._isGrounded)
-       //{
+       if(Input.GetButtonDown("Jump") && GroundSensor._isGrounded)
+       {
         Playerjump();
-       //_rBody2D.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
-       //if = condicionante
-       //_rBody2D porque en los "()" indicas como hay 2 vertices zy y xy, y como solo afecta el jumpforce al xy
-       //}
+       }
+
+       _animator.SetBool("IsJumping", GroundSensor._isGrounded);
        
        if(Input.GetButtonDown("Fire2"))
        {
         _director.Play();
        }
-
        
     }
     
     void FixedUpdate() 
     {
-        //_rBody2D.AddForce(new Vector2(_playerInputHorizontal * _playerSpeed, 0), ForceMode2D.Impulse);
-        //esta línea se utilizará para hacer el salto ;)
+        /*_rBody2D.AddForce(new Vector2(_playerInputHorizontal * _playerSpeed, 0), ForceMode2D.Impulse);
+        esta línea se utilizará para hacer el salto ;) */
         _rBody2D.velocity = new Vector2(_playerInputHorizontal * _playerSpeed, _rBody2D.velocity.y);
     }
     
     void PlayerMovement()
     {
         _playerInputHorizontal = Input.GetAxis("Horizontal");
-        //_playerInputVertical = Input.GetAxis("Vertical");
-        //transform.Translate(new Vector2(_playerInputHorizontal, _playerInputVertical) * _playerSpeed * Time.deltaTime);
+        /*_playerInputVertical = Input.GetAxis("Vertical");
+        transform.Translate(new Vector2(_playerInputHorizontal, _playerInputVertical) * _playerSpeed * Time.deltaTime);*/
         
         if(_playerInputHorizontal < 0)
         {
@@ -82,11 +80,14 @@ public class Player : MonoBehaviour
 
     void Playerjump()
     {
-        if(Input.GetButtonDown("Jump") && _sensor._isGrounded)
         _rBody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);  
-        //if = condicionante
-       //_rBody2D porque en los "()" indicas como hay 2 vertices zy y xy, y como solo afecta el jumpforce al xy
-       
+        /*if = condicionante
+       _rBody2D porque en los "()" indicas como hay 2 vertices zy y xy, y como solo afecta el jumpforce al xy*/
+    }
+
+    public void SignalTest()
+    {
+        Debug.Log("Señal recibida");
     }
 
 }

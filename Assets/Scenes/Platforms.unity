@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 500802709}
   - component: {fileID: 500802712}
   - component: {fileID: 500802713}
+  - component: {fileID: 500802714}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -453,6 +454,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &500802714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500802707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 27da0819804b1df4caf8e96b31834d87, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 500802711}
+          m_TargetAssemblyTypeName: Player, Assembly-CSharp
+          m_MethodName: SignalTest
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &594273694
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +525,9 @@ PlayableDirector:
   - key: {fileID: 1458264782337225967, guid: 8a13658e09b028d46926c65343358a7b, type: 2}
     value: {fileID: 1757644641}
   - key: {fileID: -6698415939620784331, guid: 8a13658e09b028d46926c65343358a7b, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1569069802}
+  - key: {fileID: -5043040600868367020, guid: 8a13658e09b028d46926c65343358a7b, type: 2}
+    value: {fileID: 500802714}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &594273696
@@ -3857,7 +3890,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.15844
+  orthographic size: 3.35
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4114,7 +4147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1757644642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4315,7 +4348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc422f09d2c8ac0499d69d3f0b2bb27b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isGrounded: 0
 --- !u!1 &1991204489
 GameObject:
   m_ObjectHideFlags: 0
