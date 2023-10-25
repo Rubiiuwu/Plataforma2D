@@ -7,12 +7,10 @@ public class Player : MonoBehaviour
 {
     [Header("Player Stats")]
     [Tooltip("Controla la velocidad d movimiento del personaje")]
-
     [SerializeField]private float _playerSpeed = 5;
     //los corchetes estos " [] " son para que se vea en el inspector
     [Tooltip("Controla la fuerza de salto del personaje")]
     [SerializeField]private float _jumpForce = 5;
-     
     private float _playerInput;
     //private float _playerInputVertical;
     private float _playerInputHorizontal;
@@ -77,7 +75,6 @@ public class Player : MonoBehaviour
         {
         _animator.SetBool("IsRunning", false);
         }
-
     }
 
     void Playerjump()
@@ -85,6 +82,7 @@ public class Player : MonoBehaviour
         _rBody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);  
         /*if = condicionante
        _rBody2D porque en los "()" indicas como hay 2 vertices zy y xy, y como solo afecta el jumpforce al xy*/
+        SoundManager.instance.PlayerJump();
     }
 
     public void SignalTest()
@@ -92,10 +90,14 @@ public class Player : MonoBehaviour
         Debug.Log("Señal recibida");
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerExit2D(Collider2D collider)
     {
-        GameManager.instance.GameOver();    
+   
+        if(collider. gameObject.layer == 3)
+        {
+            GameManager.instance.GameOver();
+            SoundManager.instance.PlayerDeath();
+        }
     }
-
 }
 
