@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         _rBody2D = GetComponent<Rigidbody2D>();
+        Debug.Log(GameManager.instance.vidas); 
+        //Archivo donde busca.Busqueda.La variable que busco
     }
 
     // Update is called once per frame
@@ -88,6 +90,11 @@ public class Player : MonoBehaviour
     public void SignalTest()
     {
         Debug.Log("Señal recibida");
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        GameManager.instance.GameOver();    
     }
 
 }
