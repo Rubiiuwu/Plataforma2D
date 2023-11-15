@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] GameObject objectPrefab;
+    [SerializeField] float spawnRate = 1;
+    [SerializeField] int numberOfObjectsToSpawn = 5;
+    
     void Start()
+    {
+        StartCoroutine("Spawn"/* spawn()*/);
+        //StopCorutine("Spawn"/* spawn()*/);
+        //StopAllCorutines("Spawn"/* spawn()*/);
+    }
+
+    
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Spawn()
     {
-        
+        for (int i = 0; i < numberOfObjectsToSpawn; i++)
+        {
+            Instantiate(objectPrefab, transform.position, transform.rotation);
+            yield return new WaitForSeconds(spawnRate);
+        }
     }
 }

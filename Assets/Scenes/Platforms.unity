@@ -1109,6 +1109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47039fca48b3c94fa40c876739192de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 1101830395536653949, guid: f7f58272c96150b44acac30170cc0994, type: 3}
+  spawnRate: 1
+  numberOfObjectsToSpawn: 5
 --- !u!4 &1421028187
 Transform:
   m_ObjectHideFlags: 0
