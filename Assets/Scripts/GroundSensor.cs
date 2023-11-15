@@ -12,6 +12,8 @@ public class GroundSensor : MonoBehaviour
       _animator = GameObject.Find("rogue").GetComponent<Animator>();
       //Esta función sirve para buscar en el "gameobject" (rogue) el componente animator
     }
+
+    
     void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.gameObject.layer == 6)
@@ -19,6 +21,14 @@ public class GroundSensor : MonoBehaviour
           _isGrounded = true;   
           _animator.SetBool("IsJumping", false); 
         }
+
+        else if(other.gameObject.layer == 7)
+       {
+        Debug.Log("star!!");
+        //SFXManager.EnemyDeath();
+        Star star = other.gameObject.GetComponent<Star> ();
+        star.Destroy();
+       }
     }
     void OnTriggerExit2D(Collider2D other)
     {
