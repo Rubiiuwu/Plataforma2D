@@ -5,14 +5,14 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     CircleCollider2D circleCollider;
-    //SFX sfxManager;
+    SoundManager soundManager;
     Animator anim;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         circleCollider = GetComponent<CircleCollider2D>();
-        //sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
        
     public void Destroy()
@@ -20,7 +20,7 @@ public class Bomb : MonoBehaviour
       
         circleCollider.enabled = false;
         Destroy(this.gameObject);
-        //sfxManager.Bomb();
+        soundManager.BombExplode();
 
     }
 }

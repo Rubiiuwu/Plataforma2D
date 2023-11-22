@@ -7,6 +7,10 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance{get; private set;}
     [SerializeField]public AudioClip playerDeath;
     [SerializeField]public AudioClip playerJump;
+    [SerializeField]public AudioClip playerHurt;
+    [SerializeField]public AudioClip starPick;
+    [SerializeField]public AudioClip bombExplode;
+    [SerializeField]public AudioClip bandaSonora;
     AudioSource _sfxAudioSource;
 
     void Awake()
@@ -30,4 +34,22 @@ public class SoundManager : MonoBehaviour
     {
     _sfxAudioSource.PlayOneShot(playerJump);
     }
+
+    public void PlayerHurt()
+    {
+    _sfxAudioSource.PlayOneShot(playerHurt);
+    }
+    public void StarPick()
+    {
+    _sfxAudioSource.PlayOneShot(starPick);
+    }
+    public void BombExplode()
+    {
+    _sfxAudioSource.PlayOneShot(bombExplode);
+    }
+    public void BandaSonora()
+    {
+    _sfxAudioSource.PlayOneShot(bandaSonora);
+    }
 }
+

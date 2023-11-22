@@ -6,14 +6,14 @@ public class Star : MonoBehaviour
 {
 
     BoxCollider2D boxCollider;
-    //SFX sfxManager;
+    SoundManager soundManager;
     Animator anim;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
-        //sfxManager = GameObject.Find("SFXManager").GetComponent<SFXManager>();
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
        
     public void Destroy()
@@ -21,7 +21,7 @@ public class Star : MonoBehaviour
       
         boxCollider.enabled = false;
         Destroy(this.gameObject);
-        //sfxManager.Coin();
+        soundManager.StarPick();
 
     }
 }
