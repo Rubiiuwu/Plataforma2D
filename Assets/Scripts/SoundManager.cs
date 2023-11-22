@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField]public AudioClip starPick;
     [SerializeField]public AudioClip bombExplode;
     [SerializeField]public AudioClip bandaSonora;
-    AudioSource _sfxAudioSource;
+    public AudioSource _sfxAudioSource;
 
     void Awake()
     {
@@ -23,7 +23,9 @@ public class SoundManager : MonoBehaviour
         {
             instance = this;
         }
-        _sfxAudioSource = GetComponent <AudioSource>();
+
+        DontDestroyOnLoad(this.gameObject);
+        _sfxAudioSource = GetComponent<AudioSource>();
     }
 
     public void PlayerDeath()
