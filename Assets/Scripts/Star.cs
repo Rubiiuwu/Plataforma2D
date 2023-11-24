@@ -8,6 +8,8 @@ public class Star : MonoBehaviour
     BoxCollider2D boxCollider;
     SoundManager soundManager;
     Animator anim;
+
+    public int value;
     
 
     void Start()

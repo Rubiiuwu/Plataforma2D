@@ -19,9 +19,9 @@ public class Contador : MonoBehaviour
         instance = this;
     }
 
-    public void IncreaseStars(int value)
+    public void IncreaseStars(int v)
     {
-        currentStars += value;
+        currentStars += v;
         starsText.text = "STARS: " + currentStars.ToString();
     }
 }
