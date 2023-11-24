@@ -5832,9 +5832,10 @@ MonoBehaviour:
   playerDeath: {fileID: 8300000, guid: 39441f8962b744549a3bf531168b5441, type: 3}
   playerJump: {fileID: 8300000, guid: f2e956dd7fd941640bcdbe47b2d5f881, type: 3}
   playerHurt: {fileID: 0}
-  starPick: {fileID: 0}
-  bombExplode: {fileID: 0}
-  bandaSonora: {fileID: 0}
+  starPick: {fileID: 8300000, guid: 9b2a3ab6a6498b643b44c27be81f663d, type: 3}
+  bombExplode: {fileID: 8300000, guid: ef355e432e1f85c45a7f0a9845f347a0, type: 3}
+  bandaSonora: {fileID: 8300000, guid: 85951619ef5d865419d5b816b0ef997e, type: 3}
+  _sfxAudioSource: {fileID: 0}
 --- !u!82 &2040973875
 AudioSource:
   m_ObjectHideFlags: 0

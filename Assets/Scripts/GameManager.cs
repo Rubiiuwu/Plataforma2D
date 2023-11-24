@@ -26,5 +26,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         SceneManager.LoadScene(2);
     }
+    public void Play()
+    {
+        Debug.Log("Play");
+        SceneManager.LoadScene(1);
+    }
 
 }
