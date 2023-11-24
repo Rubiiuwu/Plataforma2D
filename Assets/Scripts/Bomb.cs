@@ -8,7 +8,6 @@ public class Bomb : MonoBehaviour
     SoundManager soundManager;
     Animator anim;
 
-
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -21,6 +20,7 @@ public class Bomb : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Destroy();
+            GameManager.instance.PerderVida;
         }
     }
        

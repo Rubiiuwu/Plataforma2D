@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance{get; private set;}
     public int vidas;
+    public HUD;
 
     
     void Awake()
@@ -20,7 +21,6 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
     }
-
     public void GameOver()
     {
         Debug.Log("Game Over");
@@ -32,4 +32,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void PerderVida()
+    {
+        vidas = -1;
+        if(vidas == 0)
+        {
+            SoundManager.instance.PlayerDeath();
+            SceneManager.LoadScene(2);
+        }
+        HUD.DesactivarVida(vidas);
+    }
 }
