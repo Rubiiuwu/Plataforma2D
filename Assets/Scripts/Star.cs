@@ -8,6 +8,7 @@ public class Star : MonoBehaviour
     BoxCollider2D boxCollider;
     SoundManager soundManager;
     Animator anim;
+    
 
     void Start()
     {
@@ -18,10 +19,14 @@ public class Star : MonoBehaviour
        
     public void Destroy()
     {
-      
         boxCollider.enabled = false;
         Destroy(this.gameObject);
         soundManager.StarPick();
+    }
 
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        Destroy(gameObject);
+        Contador.instance.IncreaseStars(value);
     }
 }

@@ -19,8 +19,8 @@ public class Bomb : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Destroy();
-            GameManager.instance.PerderVida;
+            Destroy(gameObject);
+            GameManager.instance.PerderVida();
         }
     }
        

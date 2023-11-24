@@ -19,7 +19,7 @@ public class HUD : MonoBehaviour
         vidas[indice].SetActive(false);
     }
 
-    void DesactivarVida(int indice)
+    public void DesactivarVida(int indice)
     {
         vidas[indice].SetActive(true);
     }

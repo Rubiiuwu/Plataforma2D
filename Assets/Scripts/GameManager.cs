@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance{get; private set;}
-    public int vidas;
-    public HUD;
+    public int vidas = 3;
+    public HUD hud;
 
     
     void Awake()
@@ -40,6 +40,6 @@ public class GameManager : MonoBehaviour
             SoundManager.instance.PlayerDeath();
             SceneManager.LoadScene(2);
         }
-        HUD.DesactivarVida(vidas);
+        hud.DesactivarVida(vidas);
     }
 }
